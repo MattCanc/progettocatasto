@@ -5,16 +5,20 @@
       "coordinates": [
         [
           [
-            -73.99,
-            40.75
+            43.08,
+            10.60
           ],
           [
-            -73.98,
+            43.08,
             40.76
           ],
           [
-            -73.99,
-            40.75
+            43.08,
+            40.76
+          ],
+          [
+            43.08,
+            40.76
           ]
         ]
       ]
@@ -24,7 +28,8 @@
     "proprietario_cf": "bdfocoi12uf6jhtre",
     "data_nasc": "1980-10-21",
     "luogo_nasc": "Milano",
-    "ubicazione": "",
+    "area": 107,
+    "perimetro": 697,
     "provincia_lotto": "Milano"
   },
   {
