@@ -1,0 +1,28 @@
+{
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -73.99,
+          40.75
+        ],
+        [
+          -73.98,
+          40.76
+        ],
+        [
+          -73.99,
+          40.75
+        ]
+      ]
+    ]
+  },
+  "proprietario_nome": "Pippo",
+  "proprietario_cognome": "Baudo",
+  "proprietario_cf": "bdfocoi12uf6jhtre",
+  "data_nasc": "1980-10-21",
+  "luogo_nasc": "Milano",
+  "ubicazione": "",
+  "provincia_lotto": "Milano"
+}
