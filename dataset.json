@@ -1,28 +1,58 @@
-{
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-      [
+[
+  {
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
         [
-          -73.99,
-          40.75
-        ],
-        [
-          -73.98,
-          40.76
-        ],
-        [
-          -73.99,
-          40.75
+          [
+            -73.99,
+            40.75
+          ],
+          [
+            -73.98,
+            40.76
+          ],
+          [
+            -73.99,
+            40.75
+          ]
         ]
       ]
-    ]
+    },
+    "proprietario_nome": "Pippo",
+    "proprietario_cognome": "Baudo",
+    "proprietario_cf": "bdfocoi12uf6jhtre",
+    "data_nasc": "1980-10-21",
+    "luogo_nasc": "Milano",
+    "ubicazione": "",
+    "provincia_lotto": "Milano"
   },
-  "proprietario_nome": "Pippo",
-  "proprietario_cognome": "Baudo",
-  "proprietario_cf": "bdfocoi12uf6jhtre",
-  "data_nasc": "1980-10-21",
-  "luogo_nasc": "Milano",
-  "ubicazione": "",
-  "provincia_lotto": "Milano"
-}
+  {
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -76.99,
+            44.75
+          ],
+          [
+            -76.98,
+            44.76
+          ],
+          [
+            -76.99,
+            44.75
+          ]
+        ]
+      ]
+    },
+    "proprietario_nome": "Gianni",
+    "proprietario_cognome": "Morandi",
+    "proprietario_cf": "mrngnn30i66o999u",
+    "data_nasc": "1969-12-25",
+    "luogo_nasc": "Milano",
+    "ubicazione": "",
+    "provincia_lotto": "Milano"
+  }
+]
