@@ -33,6 +33,7 @@
     "provincia_lotto": "Milano"
   },
   // ha prima latitutdine e poi longitufine
+  
     "geometry": {
       "type": "Polygon",
       "coordinates": [
