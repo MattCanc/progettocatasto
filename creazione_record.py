@@ -1,6 +1,7 @@
 from pykml import parser
 import pandas as pd
 import re
+import chardet
 
 def extract_data(placemark, data_dict):
     name = placemark.find(".//kml:name", namespaces=namespace)
@@ -35,7 +36,7 @@ if __name__ == '__main__':
 
     namespace = {"kml": 'http://www.opengis.net/kml/2.2'}
     
-    data_dict = {}  # Dictionary to store data
+    data_dict = {} 
     parse(root, data_dict)
 
     # Convert data_dict to a DataFrame
@@ -44,12 +45,59 @@ if __name__ == '__main__':
                        for entry in data['data']], 
                       columns=['Name', 'Longitude', 'Latitude'])
 
-    # Print the DataFrame
+    df['Name'] = df['Name'].apply(transform_name)
     print(df)
 
-    # Apply the transformation to the 'Name' column
-    df['Name'] = df['Name'].apply(transform_name)
+    # Percorso del tuo file CSV
+    percorso_csv = "./dataset.csv"
+
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.max_rows', None)
+
+    # Rileva l'encoding del file CSV
+    with open(percorso_csv, 'rb') as f:
+        result = chardet.detect(f.read())
+
+    # Leggi il file CSV come un DataFrame utilizzando l'encoding rilevato
+    dataframe = pd.read_csv(percorso_csv, header=0, encoding=result['encoding'], sep=';')
+    print(dataframe)
+
+    # Aggiungere quattro colonne, che indicano i punti delle coordinate
+    dataframe['coordinata_1'] = None
+    dataframe['coordinata_2'] = None
+    dataframe['coordinata_3'] = None
+    dataframe['coordinata_4'] = None
+
+    print(df)
+
+    # Raggruppare per nome e creare una lista di tuple (latitudine, longitudine)
+    grouped_data = df.groupby('Name').apply(lambda group: list(zip(group['Latitude'], group['Longitude']))).reset_index(name='Coordinates')
+    subset = grouped_data['Coordinates']
+
+    print(subset)
+    
+    # Iterate through each index and value (row) in the subset Series
+    for index, value in subset.items():
+        name = value[0]['Name']  # Access the 'Name' attribute from the first tuple in the list
+        coordinates_list = value[1]  # Access the list of coordinates from the second element in the tuple
+
+        # Iterate through the coordinates and populate the corresponding columns
+    for i in range(min(len(coordinates_list), 4)):
+        column_name = f'coordinata_{i + 1}'
+        dataframe.loc[dataframe['Name'] == name, column_name] = coordinates_list[i]
 
     # Print the updated DataFrame
-    print(df)
+    print(dataframe)
+
+
+    
+
+    # Unisci i dati raggruppati nel DataFrame originale
+    #dataframe = pd.merge(dataframe, grouped_data, on='Name', how='left')
+
+
+
+
+
+
 
