@@ -1,7 +1,16 @@
 from pykml import parser
 import pandas as pd
+import funzioni_coordinate
 import re
 import chardet
+import json
+import os
+
+def salva_json_in_cartella(nome_file, dati_json, cartella):
+    percorso_completo = os.path.join(cartella, nome_file)
+    with open(percorso_completo, 'w') as file_json:
+        json.dump(dati_json, file_json, indent=2)
+    print(f"Il file {nome_file} è stato salvato nella cartella {cartella}")
 
 def extract_data(placemark, data_dict):
     name = placemark.find(".//kml:name", namespaces=namespace)
@@ -29,6 +38,13 @@ def transform_name(name):
         return re.sub(r'\d', '', name) + 'T'
     return name
 
+def crea_json(df_persone, df_coordinate):
+    ...
+    
+
+
+
+
 if __name__ == '__main__':
     file_path = r"./coordinate_2.kml"
     with open(file_path, 'r') as f:
@@ -39,7 +55,6 @@ if __name__ == '__main__':
     data_dict = {} 
     parse(root, data_dict)
 
-    # Convert data_dict to a DataFrame
     df = pd.DataFrame([(name, entry['longitude'], entry['latitude']) 
                        for name, data in data_dict.items() 
                        for entry in data['data']], 
@@ -48,9 +63,8 @@ if __name__ == '__main__':
     df['Name'] = df['Name'].apply(transform_name)
     print(df)
 
-    # Percorso del tuo file CSV
-    percorso_csv = "./dataset.csv"
 
+    percorso_csv = "./dataset.csv"
     pd.set_option('display.max_columns', None)
     pd.set_option('display.max_rows', None)
 
@@ -62,12 +76,6 @@ if __name__ == '__main__':
     dataframe = pd.read_csv(percorso_csv, header=0, encoding=result['encoding'], sep=';')
     print(dataframe)
 
-    # Aggiungere quattro colonne, che indicano i punti delle coordinate
-    dataframe['coordinata_1'] = None
-    dataframe['coordinata_2'] = None
-    dataframe['coordinata_3'] = None
-    dataframe['coordinata_4'] = None
-
     print(df)
 
     # Raggruppare per nome e creare una lista di tuple (latitudine, longitudine)
@@ -75,19 +83,8 @@ if __name__ == '__main__':
     subset = grouped_data['Coordinates']
 
     print(subset)
-    
-    # Iterate through each index and value (row) in the subset Series
-    for index, value in subset.items():
-        name = value[0]['Name']  # Access the 'Name' attribute from the first tuple in the list
-        coordinates_list = value[1]  # Access the list of coordinates from the second element in the tuple
-
-        # Iterate through the coordinates and populate the corresponding columns
-    for i in range(min(len(coordinates_list), 4)):
-        column_name = f'coordinata_{i + 1}'
-        dataframe.loc[dataframe['Name'] == name, column_name] = coordinates_list[i]
-
-    # Print the updated DataFrame
     print(dataframe)
+    
 
 
     
