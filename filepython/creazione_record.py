@@ -39,12 +39,8 @@ def transform_name(name):
         return re.sub(r'\d', '', name) + 'T'
     return name
 
-def crea_json(df_persone, df_coordinate):
-
-    ...
-    
-
-
+def crea_json(df_persone, df_coordinate):    
+    quantitativo_lotti = random.randint(1, 3)
 
 
 if __name__ == '__main__':
