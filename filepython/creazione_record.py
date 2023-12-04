@@ -60,12 +60,12 @@ def crea_struttura_json(num_lotti,df_persone, df_coordinate): #cambiare l'input,
 
     # Aggiungi il numero desiderato di lotti
     for _ in range(num_lotti):
-        record_coordinate = df_persone.pop(df.index[0])
+        record_coordinate = df_coordinate.pop(df.index[0])
         lotto = {
-            "nome": "",
+            "nome": f"lotto di proprietà {_}",
             "geometry": {
                 "type": "Polygon",
-                "coordinates": [[] for _ in range(4)]
+                "coordinates": [[] for _ in range(record_coordinate)]
             },
             "area": None, #presente funzione
             "perimetro": None, #presente funzione
