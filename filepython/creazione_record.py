@@ -71,12 +71,9 @@ def crea_struttura_json(num_lotti): #cambiare l'input, perche
         json_data["utenti"][0]["lotti"].append(lotto)
 
     return json_data
-def crea_json(df_persone, df_coordinate):
 
-    ...
-    
-
-
+def crea_json(df_persone, df_coordinate):    
+    quantitativo_lotti = random.randint(1, 3)
 
 
 if __name__ == '__main__':
