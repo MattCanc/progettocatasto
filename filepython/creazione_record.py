@@ -40,16 +40,18 @@ def transform_name(name):
     return name
 
 #cambiare l'input, perchè ovviamente i campi vanno riempiti
-def crea_struttura_json(num_lotti): #cambiare l'input, perche 
+def crea_struttura_json(num_lotti,df_persone, df_coordinate): #cambiare l'input, perche 
+    record_persone = df_persone.pop(df.index[0])
+    
     json_data = {
         "utenti": [
             {
                 "proprietario": {
-                    "nome": "",
-                    "cognome": "",
-                    "cf": "",
-                    "data_nascita": "",
-                    "luogo_nascita": ""
+                    "nome": record_persone["proprietario_nome"],
+                    "cognome": record_persone["proprietario_cognome"],
+                    "cf": record_persone["proprietario_cf"],
+                    "data_nascita": record_persone["data_nasc"],
+                    "luogo_nascita": record_persone["luogo_nasc"]
                 },
                 "lotti": []
             }
@@ -58,15 +60,16 @@ def crea_struttura_json(num_lotti): #cambiare l'input, perche
 
     # Aggiungi il numero desiderato di lotti
     for _ in range(num_lotti):
+        record_coordinate = df_persone.pop(df.index[0])
         lotto = {
             "nome": "",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [[] for _ in range(4)]
             },
-            "area": None,
-            "perimetro": None,
-            "provincia_lotto": ""
+            "area": None, #presente funzione
+            "perimetro": None, #presente funzione
+            "provincia_lotto": "" #presente funzione
         }
         json_data["utenti"][0]["lotti"].append(lotto)
 
@@ -74,6 +77,7 @@ def crea_struttura_json(num_lotti): #cambiare l'input, perche
 
 def crea_json(df_persone, df_coordinate):    
     quantitativo_lotti = random.randint(1, 3)
+    #crea_struttura_json(quantitativo_lotti,df_persone, df_coordinate)
 
 
 if __name__ == '__main__':
