@@ -32,12 +32,7 @@
     "perimetro": 697,
     "provincia_lotto": "Milano"
   },
-<<<<<<< HEAD
-  // ha prima latitutdine e poi longitufine
-  
-=======
   // ha prima latitutdine e poi longitudine
->>>>>>> e83aa3e0b36464822c0ce9c81e9b4e7da8aef2e5
     "geometry": {
       "type": "Polygon",
       "coordinates": [
