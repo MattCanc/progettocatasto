@@ -39,6 +39,39 @@ def transform_name(name):
         return re.sub(r'\d', '', name) + 'T'
     return name
 
+#cambiare l'input, perchè ovviamente i campi vanno riempiti
+def crea_struttura_json(num_lotti): #cambiare l'input, perche 
+    json_data = {
+        "utenti": [
+            {
+                "proprietario": {
+                    "nome": "",
+                    "cognome": "",
+                    "cf": "",
+                    "data_nascita": "",
+                    "luogo_nascita": ""
+                },
+                "lotti": []
+            }
+        ]
+    }
+
+    # Aggiungi il numero desiderato di lotti
+    for _ in range(num_lotti):
+        lotto = {
+            "nome": "",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [[] for _ in range(4)]
+            },
+            "area": None,
+            "perimetro": None,
+            "provincia_lotto": ""
+        }
+        json_data["utenti"][0]["lotti"].append(lotto)
+
+    return json_data
+
 def crea_json(df_persone, df_coordinate):    
     quantitativo_lotti = random.randint(1, 3)
 
