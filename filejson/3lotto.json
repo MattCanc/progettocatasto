@@ -1,0 +1,68 @@
+{
+    "utenti": [
+      {
+        "proprietario": {
+          "nome": "",
+          "cognome": "",
+          "cf": "",
+          "data_nascita": "",
+          "luogo_nascita": ""
+        },
+        "lotti": [
+          {
+            "nome": "",
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [],
+                  [],
+                  [],
+                  []
+                ]
+              ]
+            },
+            "area": null,
+            "perimetro": null,
+            "provincia_lotto": ""
+          },          
+          {
+            "nome": "",
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [],
+                  [],
+                  [],
+                  []
+                ]
+              ]
+            },
+            "area": null,
+            "perimetro": null,
+            "provincia_lotto": ""
+          },          
+          {
+            "nome": "",
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [],
+                  [],
+                  [],
+                  []
+                ]
+              ]
+            },
+            "area": null,
+            "perimetro": null,
+            "provincia_lotto": ""
+          }
+          
+        ]
+      }
+
+    ]
+  }
