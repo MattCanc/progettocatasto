@@ -5,6 +5,7 @@ import re
 import chardet
 import json
 import os
+import random
 
 def salva_json_in_cartella(nome_file, dati_json, cartella):
     percorso_completo = os.path.join(cartella, nome_file)
@@ -39,6 +40,7 @@ def transform_name(name):
     return name
 
 def crea_json(df_persone, df_coordinate):
+
     ...
     
 
@@ -46,7 +48,7 @@ def crea_json(df_persone, df_coordinate):
 
 
 if __name__ == '__main__':
-    file_path = r"./coordinate_2.kml"
+    file_path = r"./dati/coordinate_2.kml"
     with open(file_path, 'r') as f:
         root = parser.parse(f).getroot()
 
@@ -64,7 +66,7 @@ if __name__ == '__main__':
     print(df)
 
 
-    percorso_csv = "./dataset.csv"
+    percorso_csv = r"./dati/dataset.csv"
     pd.set_option('display.max_columns', None)
     pd.set_option('display.max_rows', None)
 

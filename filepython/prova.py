@@ -11,7 +11,7 @@ def on_button_click():
     folium.Marker(location=[41.9028, 12.4964], popup="Roma").add_to(m)
 
     # Salva la mappa in un file HTML temporaneo
-    m.save("map.html")9
+    m.save("map.html")
 
     # Crea una finestra per visualizzare la mappa
     map_window = tk.Toplevel(root)
