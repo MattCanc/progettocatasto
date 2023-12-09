@@ -23,6 +23,3 @@ def trova_nome_citta(latitudine, longitudine):
 
     return city or "Non Trovato"
 
-
-nome = trova_nome_citta(latitudine=10.58785631141577, longitudine=43.09965718530952)
-print(nome)

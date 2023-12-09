@@ -86,7 +86,7 @@ def crea_struttura_json(df_persone: pd.DataFrame, df_coordinate: pd.DataFrame):
                 "area": area,
                 "perimetro": perimetro,
                 "centroide": {"latitudine": polygon.centroid.y, "longitudine": polygon.centroid.x},
-                "provincia_lotto": fc.trova_nome_citta(latitudine=polygon.centroid.y, longitudine=polygon.centroid.x)
+                "provincia_lotto": fc.trova_nome_citta(longitudine=polygon.centroid.y, latitudine=polygon.centroid.x)
             }
 
             # Aggiungi il lotto alla lista dei lotti
