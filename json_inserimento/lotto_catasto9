@@ -1,0 +1,49 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Paola",
+        "cognome": "Veronesi",
+        "cf": "vrnpla31s12o345u",
+        "data_nascita": "1982-07-15",
+        "luogo_nascita": "Verona",
+        "indirizzo_residenza": "Via Verdi, 56, Verona"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 10.58754528308028,
+            "longitudine": 43.09871191164804
+          },
+          "provincia_lotto": "Non Trovato"
+        }
+      ]
+    }
+  ]
+}

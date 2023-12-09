@@ -4,12 +4,34 @@ import folium
 from screeninfo import get_monitors
 
 def on_button_click():
-    ...
+     # Creazione di una nuova finestra
+    new_page = tk.Toplevel(root)
+    new_page.title("Nuova Pagina")
+
+    # Aggiunta di widget alla nuova finestra
+    label = ttk.Label(new_page, text="Questa è la nuova pagina!")
+    label.pack(padx=150, pady=150)
+    print("Hai premuto Cerca Punto")
 
 def on_search_button_click():
-    # Implementa la logica per cercare il nome
-    # Aggiungi il codice necessario qui
-    pass
+     # Creazione di una nuova finestra
+    new_page = tk.Toplevel(root)
+    new_page.title("Nuova Pagina")
+
+    # Aggiunta di widget alla nuova finestra
+    label = ttk.Label(new_page, text="Questa è la nuova pagina!")
+    label.pack(padx=150, pady=150)
+    print("Hai premuto Cerca Nome")
+
+def on_search_newstreet_button_click():
+     # Creazione di una nuova finestra
+    new_page = tk.Toplevel(root)
+    new_page.title("Nuova Pagina")
+
+    # Aggiunta di widget alla nuova finestra
+    label = ttk.Label(new_page, text="Questa è la nuova pagina!")
+    label.pack(padx=150, pady=150)
+    print("Hai premuto Cerca Strada")
 
 def on_exit_button_click():
     root.destroy()
@@ -44,7 +66,7 @@ search_button = ttk.Button(root, text="Cerca Nome", command=on_search_button_cli
 search_button.pack(pady=10)
 
 # Aggiunta di un pulsante per cercare la strada
-search_newstreet = ttk.Button(root, text="Cerca Strada", command=on_search_button_click)
+search_newstreet = ttk.Button(root, text="Cerca Strada", command=on_search_newstreet_button_click)
 search_newstreet.pack(pady=10)
 
 # Aggiunta di un pulsante per uscire dall'applicazione (posizionato in basso a sinistra)

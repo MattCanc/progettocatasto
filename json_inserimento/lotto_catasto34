@@ -1,0 +1,49 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Federica",
+        "cognome": "Ricci",
+        "cf": "rccfdr06p12e345r",
+        "data_nascita": "1987-09-25",
+        "luogo_nascita": "Bologna",
+        "indirizzo_residenza": "Via Rizzoli, 67, Bologna"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 10.58754528308028,
+            "longitudine": 43.09871191164804
+          },
+          "provincia_lotto": "Non Trovato"
+        }
+      ]
+    }
+  ]
+}

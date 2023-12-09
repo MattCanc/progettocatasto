@@ -1,6 +1,7 @@
 from pykml import parser
 import pandas as pd
-import funzioni_coordinate
+import funzioni_coordinate as fc
+from shapely.geometry import Polygon
 import re
 import chardet
 import json
@@ -9,10 +10,14 @@ import random
 
 def salva_json_in_cartella(nome_file, dati_json, cartella):
     percorso_completo = os.path.join(cartella, nome_file)
-    with open(percorso_completo, 'w') as file_json:
-        json.dump(dati_json, file_json, indent=2)
-    print(f"Il file {nome_file} è stato salvato nella cartella {cartella}")
+    try:
+        with open(percorso_completo, 'w') as file_json:
+            json.dump(dati_json, file_json, indent=2)
+        print(f"Il file {nome_file} è stato salvato nella cartella {cartella}")
+    except:
+        print(f"Errore nel salvataggio del file Json {nome_file} nella cartella: {cartella}")
 
+    
 def extract_data(placemark, data_dict):
     name = placemark.find(".//kml:name", namespaces=namespace)
     longitude = placemark.find(".//kml:LookAt/kml:longitude", namespaces=namespace)
@@ -39,45 +44,83 @@ def transform_name(name):
         return re.sub(r'\d', '', name) + 'T'
     return name
 
-#cambiare l'input, perchè ovviamente i campi vanno riempiti
-def crea_struttura_json(num_lotti,df_persone, df_coordinate): #cambiare l'input, perche 
-    record_persone = df_persone.pop(df.index[0])
-    
-    json_data = {
-        "utenti": [
-            {
-                "proprietario": {
-                    "nome": record_persone["proprietario_nome"],
-                    "cognome": record_persone["proprietario_cognome"],
-                    "cf": record_persone["proprietario_cf"],
-                    "data_nascita": record_persone["data_nasc"],
-                    "luogo_nascita": record_persone["luogo_nasc"]
-                },
-                "lotti": []
-            }
-        ]
-    }
+def crea_struttura_json(df_persone: pd.DataFrame, df_coordinate: pd.DataFrame):
+    if not df_persone.empty:
+        record_persone = df_persone.iloc[0]
 
-    # Aggiungi il numero desiderato di lotti
-    for _ in range(num_lotti):
-        record_coordinate = df_coordinate.pop(df.index[0])
-        lotto = {
-            "nome": f"lotto di proprietà {_}",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [[] for _ in range(record_coordinate)]
-            },
-            "area": None, #presente funzione
-            "perimetro": None, #presente funzione
-            "provincia_lotto": "" #presente funzione
+        json_data = {
+            "utenti": [
+                {
+                    "proprietario": {
+                        "nome": record_persone["proprietario_nome"],
+                        "cognome": record_persone["proprietario_cognome"],
+                        "cf": record_persone["proprietario_cf"],
+                        "data_nascita": record_persone["data_nasc"],
+                        "luogo_nascita": record_persone["luogo_nasc"],
+                        "indirizzo_residenza": record_persone["indirizzo_residenza"]
+                    },
+                    "lotti": []
+                }
+            ]
         }
-        json_data["utenti"][0]["lotti"].append(lotto)
 
-    return json_data
+        lista_lotti = []
 
-def crea_json(df_persone, df_coordinate):    
-    quantitativo_lotti = random.randint(1, 3)
-    #crea_struttura_json(quantitativo_lotti,df_persone, df_coordinate)
+        for i, coordinates_list in enumerate(df_coordinate['Coordinates']):
+            # Make sure to convert to a list if needed
+            coordinates = list(coordinates_list)
+            print(coordinates)
+
+            # Creazione del poligono utilizzando shapely
+            polygon = Polygon(coordinates)
+
+            area = fc.calcola_area(coordinates)
+            perimetro = fc.calcola_perimetro(coordinates)
+
+            lotto = {
+                "nome": f"lotto di proprietà {i}",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [list(polygon.exterior.coords)]
+                },
+                "area": area,
+                "perimetro": perimetro,
+                "centroide": {"latitudine": polygon.centroid.y, "longitudine": polygon.centroid.x},
+                "provincia_lotto": fc.trova_nome_citta(latitudine=polygon.centroid.y, longitudine=polygon.centroid.x)
+            }
+
+            # Aggiungi il lotto alla lista dei lotti
+            lista_lotti.append(lotto)
+
+        # Aggiungi la lista di lotti all'utente
+        json_data["utenti"][0]["lotti"] = lista_lotti
+
+        return json_data
+    else:
+        print("DataFrame df_persone is empty.")
+        return None
+    
+    
+# Utilizza la funzione crea_struttura_json per riempire i documenti
+def crea_json(df_persone, df_coordinate, path_cartella):
+    contatore_nomi = 0
+    while not df_coordinate.empty and not df_persone.empty:
+        quantitativo_lotti = random.randint(1, 3)
+        lotti = df_coordinate.head(quantitativo_lotti)
+        
+        dati_persona = df_persone.tail(1)  # Use tail(1) to get the last row as a DataFrame
+        df_persone = df_persone.drop(df_persone.index[-1])
+
+        json_completo = crea_struttura_json(df_persone=dati_persona, df_coordinate=lotti)
+        nome_json = f"lotto_catasto{contatore_nomi}"
+        salva_json_in_cartella(nome_file=nome_json, dati_json=json_completo, cartella=path_cartella)
+        contatore_nomi += 1
+
+    if df_coordinate.empty:
+        print("DataFrame df_coordinate is empty.")
+    elif df_persone.empty:
+        print("DataFrame df_persone is empty.")
+
 
 
 if __name__ == '__main__':
@@ -118,14 +161,16 @@ if __name__ == '__main__':
     subset = grouped_data['Coordinates']
 
     print(subset)
-    print(dataframe)
+    # Convert the Series to a DataFrame
+    df_coo = pd.DataFrame({subset.name: subset})
+    print((df_coo.columns))
+    print(type(dataframe))
+
+
+    # Popolamento della cartella per l'inserimento
+    path_json = r"./json_inserimento"
+    crea_json(df_persone = dataframe, df_coordinate = df_coo, path_cartella = path_json)
     
-
-
-    
-
-    # Unisci i dati raggruppati nel DataFrame originale
-    #dataframe = pd.merge(dataframe, grouped_data, on='Name', how='left')
 
 
 

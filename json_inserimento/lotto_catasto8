@@ -1,0 +1,49 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Giovanni",
+        "cognome": "Mazzini",
+        "cf": "mzzgio32g14l890j",
+        "data_nascita": "1985-04-20",
+        "luogo_nascita": "Milano",
+        "indirizzo_residenza": "Corso Magenta, 78, Milano"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ],
+                [
+                  43.09871191164804,
+                  10.58754528308028
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 10.58754528308028,
+            "longitudine": 43.09871191164804
+          },
+          "provincia_lotto": "Non Trovato"
+        }
+      ]
+    }
+  ]
+}
