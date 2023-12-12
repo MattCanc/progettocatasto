@@ -7,13 +7,13 @@
 import os
 from pymongo import MongoClient, GEOSPHERE
 import json
-
 class CatastoManager:
     def __init__(self, username, password, cluster_url, database_name):
         self.client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster_url}/')
         self.database = self.client[database_name]
 
     def open_close(self):
+        print(f"Connessione al database :{database_name}")
         collections = self.database.list_collection_names()
         print(f"Collezioni disponibili nel database: {collections}")
 
@@ -69,14 +69,21 @@ class CatastoManager:
 
         # Proiezione dei campi desiderati
         projection = {
-            "utenti.proprietario.nome": 1,
-            "utenti.proprietario.cognome": 1,
-            "utenti.proprietario.cf": 1,
-            "utenti.proprietario.data_nascita": 1,
-            "utenti.proprietario.luogo_nascita": 1,
-            "utenti.proprietario.indirizzo_residenza": 1,
-            "_id": 0
-        }
+        "utenti.proprietario.nome": 1,
+        "utenti.proprietario.cognome": 1,
+        "utenti.proprietario.cf": 1,
+        "utenti.proprietario.data_nascita": 1,
+        "utenti.proprietario.luogo_nascita": 1,
+        "utenti.proprietario.indirizzo_residenza": 1,
+        "utenti.lotti.nome": 1,
+        "utenti.lotti.geometry": 1,
+        "utenti.lotti.area": 1,
+        "utenti.lotti.perimetro": 1,
+        "utenti.lotti.centroide.latitudine": 1,
+        "utenti.lotti.centroide.longitudine": 1,
+        "utenti.lotti.provincia_lotto": 1,
+        "_id": 0
+    }
 
         try:
             # Esegui la query
@@ -88,6 +95,104 @@ class CatastoManager:
                 print(documento)
         except Exception as e:
             print(f"Errore durante la ricerca: {str(e)}")
+
+    def find_owner_by_cv(self, collection_name, cf: str):
+        cf = cf.lower()
+        print(f"Sto cercando codice fiscale: {cf} in collezione {collection_name}")
+
+        collection = self.database[collection_name]
+
+        query = {"utenti.proprietario.cf": cf}
+
+        try:
+            result = collection.aggregate([
+                {"$match": query},
+                {"$project": {
+                    "utenti.proprietario.nome": 1,
+                    "utenti.proprietario.cognome": 1,
+                    "utenti.proprietario.cf": 1,
+                    "utenti.proprietario.data_nascita": 1,
+                    "utenti.proprietario.luogo_nascita": 1,
+                    "utenti.proprietario.indirizzo_residenza": 1,
+                    "lotti.nome": "$utenti.lotti.nome",
+                    "lotti.geometry": "$utenti.lotti.geometry",
+                    "lotti.area": "$utenti.lotti.area",
+                    "lotti.perimetro": "$utenti.lotti.perimetro",
+                    "lotti.centroide_latitudine": "$utenti.lotti.centroide.latitudine",
+                    "lotti.centroide_longitudine": "$utenti.lotti.centroide.longitudine",
+                    "lotti.provincia": "$utenti.lotti.provincia_lotto",
+                    "_id": 0
+                }}
+            ])
+
+            for documento in result:
+                print(documento)
+        except Exception as e:
+            print(f"Errore durante la ricerca: {str(e)}")
+    
+    def find_owner_by_coordinates(self, collection_name, punto_di_riferimento):
+        query = {
+            "lotti": {
+                "$elemMatch": {
+                    "geometry": {
+                        "$geoWithin": {
+                            "$geometry": {
+                                "type": "Point",
+                                "coordinates": punto_di_riferimento
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        collection = self.database[collection_name]
+        print(f"Sto cercando il punto: {punto_di_riferimento[0]},{punto_di_riferimento[1]} in collezione {collection_name}")
+        try:
+            result = collection.find([
+                {"$match": query},
+                {"$project": {
+                    "utenti.proprietario.nome": 1,
+                    "utenti.proprietario.cognome": 1,
+                    "utenti.proprietario.cf": 1,
+                    "utenti.proprietario.data_nascita": 1,
+                    "utenti.proprietario.luogo_nascita": 1,
+                    "utenti.proprietario.indirizzo_residenza": 1,
+                    "lotti.nome": "$utenti.lotti.nome",
+                    "lotti.geometry": "$utenti.lotti.geometry",
+                    "lotti.area": "$utenti.lotti.area",
+                    "lotti.perimetro": "$utenti.lotti.perimetro",
+                    "lotti.centroide_latitudine": "$utenti.lotti.centroide.latitudine",
+                    "lotti.centroide_longitudine": "$utenti.lotti.centroide.longitudine",
+                    "lotti.provincia": "$utenti.lotti.provincia_lotto",
+                    "_id": 0
+                }}
+            ])
+
+            # In
+            result = collection.aggregate([
+                {"$match": query},
+                {"$project": {
+                    "utenti.proprietario.nome": 1,
+                    "utenti.proprietario.cognome": 1,
+                    "utenti.proprietario.cf": 1,
+                    "utenti.proprietario.data_nascita": 1,
+                    "utenti.proprietario.luogo_nascita": 1,
+                    "utenti.proprietario.indirizzo_residenza": 1,
+                    "lotti.nome": "$utenti.lotti.nome",
+                    "lotti.geometry": "$utenti.lotti.geometry",
+                    "lotti.area": "$utenti.lotti.area",
+                    "lotti.perimetro": "$utenti.lotti.perimetro",
+                    "lotti.centroide_latitudine": "$utenti.lotti.centroide.latitudine",
+                    "lotti.centroide_longitudine": "$utenti.lotti.centroide.longitudine",
+                    "lotti.provincia": "$utenti.lotti.provincia_lotto",
+                    "_id": 0
+                }}
+            ])
+            for documento in result:
+                print(documento)
+        except Exception as e:
+            print(f"Errore durante la ricerca: {str(e)}")
+        # se non restituisce nulla allora trova i lotti più vicini
 
 
 
@@ -115,4 +220,6 @@ if __name__ == '__main__':
         #manager.close_connection()
     
     # cerco per nome
-    manager.find_owner(collection_name ="informazioni_catastali", nome = "Michele")
+    #manager.find_owner_by_cv(collection_name ="informazioni_catastali", cf = "strlnr05c19p220y")
+
+    # Cerco per coordinata
