@@ -1,0 +1,86 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Martina",
+        "cognome": "Santoro",
+        "cf": "sntmrt22g01e676f",
+        "data_nascita": "1987-10-05",
+        "luogo_nascita": "Torino",
+        "indirizzo_residenza": "Corso Vittorio Emanuele, 89, Torino"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.09951080804915,
+                  10.5875970726403
+                ],
+                [
+                  43.09951101273689,
+                  10.58759867741248
+                ],
+                [
+                  43.09951132904553,
+                  10.58760115695991
+                ],
+                [
+                  43.09951132904553,
+                  10.58760115695991
+                ],
+                [
+                  43.09951080804915,
+                  10.5875970726403
+                ]
+              ]
+            ]
+          },
+          "area": 3.190924897584005e-07,
+          "perimetro": 0.6758040143283162,
+          "centroide": {
+            "latitudine": 10.58759896900423,
+            "longitudine": 43.09951104994386
+          },
+          "provincia_lotto": "San Vincenzo"
+        },
+        {
+          "nome": "lotto di propriet\u00e0 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.08809204195148,
+                  10.59775203034314
+                ],
+                [
+                  43.08809204195148,
+                  10.59775203034314
+                ],
+                [
+                  43.08809204195148,
+                  10.59775203034314
+                ],
+                [
+                  43.08809204195148,
+                  10.59775203034314
+                ]
+              ]
+            ]
+          },
+          "area": 660.0,
+          "perimetro": 770.0,
+          "centroide": {
+            "latitudine": 10.59775203034314,
+            "longitudine": 43.08809204195148
+          },
+          "provincia_lotto": "Campiglia Marittima"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Leonardo",
+        "cognome": "Strada",
+        "cf": "strlnr05c19p220y",
+        "data_nascita": "1976-01-25",
+        "luogo_nascita": "Saronno",
+        "indirizzo_residenza": "Viale delle Rose, 32, Saronno"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  45.39838034112064,
+                  9.489056327933852
+                ],
+                [
+                  45.39838034112064,
+                  9.489056327933852
+                ],
+                [
+                  45.39838034112064,
+                  9.489056327933852
+                ],
+                [
+                  45.39838034112064,
+                  9.489056327933852
+                ]
+              ]
+            ]
+          },
+          "area": 1000.00,
+          "perimetro": 1000.00,
+          "centroide": {
+            "latitudine": 9.489056327933852,
+            "longitudine": 45.39838034112064
+          },
+          "provincia_lotto": "Spino d'Adda"
+        },
+        {
+          "nome": "lotto di propriet\u00e0 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  45.43855993005362,
+                  9.502995851874822
+                ],
+                [
+                  45.43855993005362,
+                  9.502995851874822
+                ],
+                [
+                  45.43699750004874,
+                  9.501579372515296
+                ],
+                [
+                  45.43670502443624,
+                  9.504267615910265
+                ],
+                [
+                  45.43855993005362,
+                  9.502995851874822
+                ]
+              ]
+            ]
+          },
+          "area": 20139.400688734964,
+          "perimetro": 648.9708687357319,
+          "centroide": {
+            "latitudine": 9.502947613433461,
+            "longitudine": 45.43742081817954
+          },
+          "provincia_lotto": "Rivolta d'Adda"
+        },
+        {
+          "nome": "lotto di propriet\u00e0 2",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  45.40309000288526,
+                  9.470817138828092
+                ],
+                [
+                  45.40309000288526,
+                  9.470817138828092
+                ],
+                [
+                  45.40309000288526,
+                  9.470817138828092
+                ],
+                [
+                  45.40309000288526,
+                  9.470817138828092
+                ]
+              ]
+            ]
+          },
+          "area": 300.000,
+          "perimetro": 200.00,
+          "centroide": {
+            "latitudine": 9.470817138828092,
+            "longitudine": 45.40309000288526
+          },
+          "provincia_lotto": "Spino d'Adda"
+        }
+      ]
+    }
+  ]
+}

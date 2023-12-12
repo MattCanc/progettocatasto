@@ -1,0 +1,53 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Stefania",
+        "cognome": "Morelli",
+        "cf": "mrlstf16p12e345r",
+        "data_nascita": "1990-09-15",
+        "luogo_nascita": "Milano",
+        "indirizzo_residenza": "Via della Moscova, 56, Milano"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.08810291721329,
+                  10.59713490594995
+                ],
+                [
+                  43.08824629260162,
+                  10.59705562937289
+                ],
+                [
+                  43.08837818812106,
+                  10.59709540039011
+                ],
+                [
+                  43.08837818812106,
+                  10.59709540039011
+                ],
+                [
+                  43.08810291721329,
+                  10.59713490594995
+                ]
+              ]
+            ]
+          },
+          "area": 73.25536938051613,
+          "perimetro": 63.01700091668427,
+          "centroide": {
+            "latitudine": 10.597095311904315,
+            "longitudine": 43.08824246597865
+          },
+          "provincia_lotto": "Campiglia Marittima"
+        }
+      ]
+    }
+  ]
+}

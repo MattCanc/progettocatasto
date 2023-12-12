@@ -1,0 +1,53 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Leonardo",
+        "cognome": "Strada",
+        "cf": "strlnr05c19p220y",
+        "data_nascita": "1976-01-25",
+        "luogo_nascita": "Saronno",
+        "indirizzo_residenza": "Viale delle Rose, 32, Saronno"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.08432704899659,
+                  10.60241636460441
+                ],
+                [
+                  43.08432704899659,
+                  10.60241636460441
+                ],
+                [
+                  43.08432871862342,
+                  10.60241634107655
+                ],
+                [
+                  43.08432995879807,
+                  10.60241632350986
+                ],
+                [
+                  43.08432704899659,
+                  10.60241636460441
+                ]
+              ]
+            ]
+          },
+          "area": 6.852904674316262e-07,
+          "perimetro": 0.6473206583493754,
+          "centroide": {
+            "latitudine": 10.602416343063606,
+            "longitudine": 43.084328575472696
+          },
+          "provincia_lotto": "Campiglia Marittima"
+        }
+      ]
+    }
+  ]
+}

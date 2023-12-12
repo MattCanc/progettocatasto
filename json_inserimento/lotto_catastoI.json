@@ -1,0 +1,115 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Silvia",
+        "cognome": "Martelli",
+        "cf": "mrtslv39m01l234k",
+        "data_nascita": "1988-12-10",
+        "luogo_nascita": "Venezia",
+        "indirizzo_residenza": "Calle delle Botteghe, 23, Venezia"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.08737960464614,
+                  10.60145392169762
+                ],
+                [
+                  43.08736792212265,
+                  10.60141506690591
+                ],
+                [
+                  43.08732661394619,
+                  10.60125618842934
+                ],
+                [
+                  43.08737960464614,
+                  10.60145392169762
+                ]
+              ]
+            ]
+          },
+          "area": 1.13833319933563,
+          "perimetro": 34.32958829753059,
+          "centroide": {
+            "latitudine": 10.601375059010957,
+            "longitudine": 43.08735804690499
+          },
+          "provincia_lotto": "Campiglia Marittima"
+        },
+        {
+          "nome": "lotto di propriet\u00e0 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.09981870420354,
+                  10.58730162788125
+                ],
+                [
+                  43.09981870420354,
+                  10.58730162788125
+                ],
+                [
+                  43.09981870420354,
+                  10.58730162788125
+                ],
+                [
+                  43.09981870420354,
+                  10.58730162788125
+                ]
+              ]
+            ]
+          },
+          "area": 77.0,
+          "perimetro": 70.0,
+          "centroide": {
+            "latitudine": 10.58730162788125,
+            "longitudine": 43.09981870420354
+          },
+          "provincia_lotto": "San Vincenzo"
+        },
+        {
+          "nome": "lotto di propriet\u00e0 2",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.09675358363668,
+                  10.58708236734514
+                ],
+                [
+                  43.09675358363668,
+                  10.58708236734514
+                ],
+                [
+                  43.09675358363668,
+                  10.58708236734514
+                ],
+                [
+                  43.09675358363668,
+                  10.58708236734514
+                ]
+              ]
+            ]
+          },
+          "area": 2330.0,
+          "perimetro":2340.0,
+          "centroide": {
+            "latitudine": 10.58708236734514,
+            "longitudine": 43.09675358363668
+          },
+          "provincia_lotto": "San Vincenzo"
+        }
+      ]
+    }
+  ]
+}

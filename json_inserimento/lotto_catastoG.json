@@ -1,0 +1,90 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Alessia",
+        "cognome": "De Luca",
+        "cf": "dlcals30m01l234k",
+        "data_nascita": "1990-07-10",
+        "luogo_nascita": "Milano",
+        "indirizzo_residenza": "Via della Moscova, 45, Milano"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00e0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.08610354288268,
+                  10.60124885666768
+                ],
+                [
+                  43.08610354288268,
+                  10.60124885666768
+                ],
+                [
+                  43.08629397886479,
+                  10.60113409565498
+                ],
+                [
+                  43.08607784621245,
+                  10.60127730600173
+                ],
+                [
+                  43.08610354288268,
+                  10.60124885666768
+                ]
+              ]
+            ]
+          },
+          "area": 11.19287243868759,
+          "perimetro": 53.560644935386605,
+          "centroide": {
+            "latitudine": 10.60122008610813,
+            "longitudine": 43.08615845598664
+          },
+          "provincia_lotto": "Campiglia Marittima"
+        },
+        {
+          "nome": "lotto di propriet\u00e0 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  43.07747278361329,
+                  10.58880873013468
+                ],
+                [
+                  43.07747278361329,
+                  10.58880873013468
+                ],
+                [
+                  43.07747278361329,
+                  10.58880873013468
+                ],
+                [
+                  43.07769143725584,
+                  10.58874476797883
+                ],
+                [
+                  43.07747278361329,
+                  10.58880873013468
+                ]
+              ]
+            ]
+          },
+          "area": 880.0,
+          "perimetro": 880.0,
+          "centroide": {
+            "latitudine": 10.588776749056755,
+            "longitudine": 43.07758211043456
+          },
+          "provincia_lotto": "Campiglia Marittima"
+        }
+      ]
+    }
+  ]
+}

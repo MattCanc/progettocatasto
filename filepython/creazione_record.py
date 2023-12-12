@@ -69,7 +69,8 @@ def crea_struttura_json(df_persone: pd.DataFrame, df_coordinate: pd.DataFrame):
         for i, coordinates_list in enumerate(df_coordinate['Coordinates']):
             # Make sure to convert to a list if needed
             coordinates = list(coordinates_list)
-            print(coordinates)
+            print(f"IL TIPO : {type(coordinates)}")
+            
 
             # Creazione del poligono utilizzando shapely
             polygon = Polygon(coordinates)
@@ -104,15 +105,25 @@ def crea_struttura_json(df_persone: pd.DataFrame, df_coordinate: pd.DataFrame):
 # Utilizza la funzione crea_struttura_json per riempire i documenti
 def crea_json(df_persone, df_coordinate, path_cartella):
     contatore_nomi = 0
-    while not df_coordinate.empty and not df_persone.empty:
-        quantitativo_lotti = random.randint(1, 3)
-        lotti = df_coordinate.head(quantitativo_lotti)
+    while not df_coordinate.empty:
+        # Converti le liste di coordinate in tuple prima di rimuovere i duplicati
+        df_coordinate['Coordinates'] = df_coordinate['Coordinates'].apply(tuple)
         
-        dati_persona = df_persone.tail(1)  # Use tail(1) to get the last row as a DataFrame
-        df_persone = df_persone.drop(df_persone.index[-1])
+        # Rimuovi duplicati dalle coordinate
+        df_coordinate_no_duplicates = df_coordinate.drop_duplicates(subset='Coordinates')
 
+        quantitativo_lotti = random.randint(1, min(3, len(df_coordinate_no_duplicates)))
+        lotti = df_coordinate_no_duplicates.sample(quantitativo_lotti)
+        df_coordinate = df_coordinate.drop(lotti.index)
+
+        dati_persona = df_persone.sample(1)
+        df_persone = df_persone.drop(dati_persona.index)
+
+        # Assicurati che ci siano almeno 4 coordinate per formare un poligono
+        lotti['Coordinates'] = lotti['Coordinates'].apply(lambda x: x if len(x) >= 4 else x + x[:4-len(x)])
+        
         json_completo = crea_struttura_json(df_persone=dati_persona, df_coordinate=lotti)
-        nome_json = f"lotto_catasto{contatore_nomi}"
+        nome_json = f"lotto_catasto{contatore_nomi}.json"
         salva_json_in_cartella(nome_file=nome_json, dati_json=json_completo, cartella=path_cartella)
         contatore_nomi += 1
 
@@ -120,6 +131,8 @@ def crea_json(df_persone, df_coordinate, path_cartella):
         print("DataFrame df_coordinate is empty.")
     elif df_persone.empty:
         print("DataFrame df_persone is empty.")
+
+
 
 
 
