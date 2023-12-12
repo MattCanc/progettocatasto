@@ -1,6 +1,4 @@
 # TO DO
-# 1. trasformare in clase queste funzioni
-# 2. popolare il db
 # 3. fare le query
 # 4. creare delle strade "nuove che intersichino i lotti"
 # 5. sistemare la gui
@@ -21,9 +19,12 @@ class CatastoManager:
 
     def create_geospatial_index(self, collection_name, location_field):
         collection = self.database[collection_name]
-        # Creazione dell'indice 2dsphere
-        collection.create_index([(location_field, GEOSPHERE)])
-        print(f"Indice 2dsphere creato su campo '{location_field}' nella collezione '{collection_name}'.")
+        try:
+            # Creazione dell'indice 2dsphere
+            collection.create_index([(location_field, GEOSPHERE)])
+            print(f"Indice 2dsphere creato su campo '{location_field}' nella collezione '{collection_name}'.")
+        except Exception as e:
+            print(f"Errore durante la creazione dell'indice: {str(e)}")
 
     def insert_data_from_file(self, collection_name, file_path, location_field):
         try:
@@ -34,9 +35,11 @@ class CatastoManager:
             return
 
         collection = self.database[collection_name]
-        collection.insert_one(data)
-
-        print(f"Dati dal file '{file_path}' inseriti nella collezione '{collection_name}'.")
+        try:
+            collection.insert_one(data)
+            print(f"Dati dal file '{file_path}' inseriti nella collezione '{collection_name}'.")
+        except Exception as e:
+            print(f"Errore durante l'inserimento dei dati: {str(e)}")
 
     def insert_data_from_folder(self, collection_name, folder_path, location_field):
         # Itera attraverso tutti i file nella cartella
@@ -48,6 +51,47 @@ class CatastoManager:
     def close_connection(self):
         self.client.close()
 
+    def find_owner(self, collection_name, nome: str, cognome: str = ""):
+        # Capitalizza le variabili nome e cognome
+        print("Sto cercando...")
+        nome_capitalized = nome.capitalize()
+        print(nome_capitalized)
+        cognome_capitalized = cognome.capitalize()
+        print(f"Cerco {nome_capitalized} in collezione {collection_name}")
+
+        # Ottieni la collezione corrente
+        collection = self.database[collection_name]
+
+        # Costruisci la query in base ai parametri forniti
+        query = {"utenti.proprietario.nome": nome_capitalized}
+        if cognome != "":
+            query["utenti.proprietario.cognome"] = cognome_capitalized
+
+        # Proiezione dei campi desiderati
+        projection = {
+            "utenti.proprietario.nome": 1,
+            "utenti.proprietario.cognome": 1,
+            "utenti.proprietario.cf": 1,
+            "utenti.proprietario.data_nascita": 1,
+            "utenti.proprietario.luogo_nascita": 1,
+            "utenti.proprietario.indirizzo_residenza": 1,
+            "_id": 0
+        }
+
+        try:
+            # Esegui la query
+            result = collection.find(query, projection)
+
+            # Stampa o elabora tutti i risultati
+            # da migliorare la visualizzazione 
+            for documento in result:
+                print(documento)
+        except Exception as e:
+            print(f"Errore durante la ricerca: {str(e)}")
+
+
+
+
 if __name__ == '__main__':
     username = 'gsavio'
     password = 'Gretina99'
@@ -57,16 +101,18 @@ if __name__ == '__main__':
     # Creo un'istanza della classe CatastoManager
     manager = CatastoManager(username, password, cluster_url, database_name)
     folder_path = 'json_inserimento'
-    
+    location_field = 'geometry.coordinates'
+
     try:
         print("Operazioni sul database:")
         manager.open_close()
-        location_field = 'geometry.coordinates'  
-        manager.insert_data_from_folder("informazioni_catastali", folder_path, location_field)
-        manager.create_geospatial_index("informazioni_catastali", location_field)
-        
-        
+        #manager.insert_data_from_folder("informazioni_catastali", folder_path, location_field)
+        #manager.create_geospatial_index("informazioni_catastali", location_field)
 
     finally:
+        ...
         # Chiudo la connessione alla fine delle operazioni
-        manager.close_connection()
+        #manager.close_connection()
+    
+    # cerco per nome
+    manager.find_owner(collection_name ="informazioni_catastali", nome = "Michele")
