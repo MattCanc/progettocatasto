@@ -1,0 +1,108 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Giovanni",
+        "cognome": "Rossi",
+        "cf": "rssgnn80a01h123X",
+        "data_nascita": "1980-05-15",
+        "luogo_nascita": "Roma",
+        "indirizzo_residenza": "Via Appia, 123, Roma"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di proprietà A",
+          "geometry": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                  "coordinates": [
+                    [
+                      [
+                        8.418079148912739,
+                        45.258657168334196
+                      ],
+                      [
+                        8.418079148912739,
+                        45.02248279370414
+                      ],
+                      [
+                        9.208956965835199,
+                        45.02248279370414
+                      ],
+                      [
+                        9.208956965835199,
+                        45.258657168334196
+                      ],
+                      [
+                        8.418079148912739,
+                        45.258657168334196
+                      ]
+                    ]
+                  ],
+                  "type": "Polygon"
+                }
+              }
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 0.0,
+            "longitudine": 0.0
+          },
+          "provincia_lotto": ""
+        },
+        {
+          "nome": "lotto di proprietà B",
+          "geometry": {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                  "coordinates": [
+                    [
+                      [
+                        17.014832890015384,
+                        40.935888522054796
+                      ],
+                      [
+                        17.014832890015384,
+                        40.80747465735499
+                      ],
+                      [
+                        17.209304114796538,
+                        40.80747465735499
+                      ],
+                      [
+                        17.209304114796538,
+                        40.935888522054796
+                      ],
+                      [
+                        17.014832890015384,
+                        40.935888522054796
+                      ]
+                    ]
+                  ],
+                  "type": "Polygon"
+                }
+              }
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 0.0,
+            "longitudine": 0.0
+          },
+          "provincia_lotto": ""
+        }
+      ]
+    }
+  ]
+}

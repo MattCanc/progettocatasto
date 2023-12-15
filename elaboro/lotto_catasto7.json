@@ -1,0 +1,54 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Silvia",
+        "cognome": "Martelli",
+        "cf": "mrtslv39m01l234k",
+        "data_nascita": "1988-12-10",
+        "luogo_nascita": "Venezia",
+        "indirizzo_residenza": "Calle delle Botteghe, 23, Venezia",
+        "professione": "Stilista"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di proprietà 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  13.433536515961919,
+                  42.62422232048402
+                ],
+                [
+                  13.433536515961919,
+                  42.62363466871736
+                ],
+                [
+                  13.434665030932251,
+                  42.62363466871736
+                ],
+                [
+                  13.434665030932251,
+                  42.62422232048402
+                ],
+                [
+                  13.433536515961919,
+                  42.62422232048402
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 42.62392849460069,
+            "longitudine": 13.434100773447085
+          },
+          "provincia_lotto": ""
+        }
+      ]
+    }
+  ]
+}

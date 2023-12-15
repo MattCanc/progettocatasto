@@ -1,0 +1,127 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Alessio",
+        "cognome": "Ricciardi",
+        "cf": "rcdrcl38g14o336x",
+        "data_nascita": "1977-05-18",
+        "luogo_nascita": "Torino",
+        "indirizzo_residenza": "Via Po, 89, Torino"
+      },
+      "lotti": [
+        {
+          "nome": "Lotto A",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  16.022214319716454,
+                  38.17091941076802
+                ],
+                [
+                  16.022214319716454,
+                  38.17052574884727
+                ],
+                [
+                  16.022881962464112,
+                  38.17052574884727
+                ],
+                [
+                  16.022881962464112,
+                  38.17091941076802
+                ],
+                [
+                  16.022214319716454,
+                  38.17091941076802
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 0.0,
+            "longitudine": 0.0
+          },
+          "provincia_lotto": "Non Trovato"
+        },
+        {
+          "nome": "Lotto B",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  16.024121870423045,
+                  38.170244560459196
+                ],
+                [
+                  16.024121870423045,
+                  38.1697009264995
+                ],
+                [
+                  16.025767132908413,
+                  38.1697009264995
+                ],
+                [
+                  16.025767132908413,
+                  38.170244560459196
+                ],
+                [
+                  16.024121870423045,
+                  38.170244560459196
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 0.0,
+            "longitudine": 0.0
+          },
+          "provincia_lotto": "Non Trovato"
+        },
+        {
+          "nome": "Lotto C",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  16.01980603694821,
+                  38.168660512271714
+                ],
+                [
+                  16.01980603694821,
+                  38.16817310590409
+                ],
+                [
+                  16.020747890110528,
+                  38.16817310590409
+                ],
+                [
+                  16.020747890110528,
+                  38.168660512271714
+                ],
+                [
+                  16.01980603694821,
+                  38.168660512271714
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 0.0,
+            "longitudine": 0.0
+          },
+          "provincia_lotto": "Non Trovato"
+        }
+      ]
+    }
+  ]
+}

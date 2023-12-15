@@ -1,28 +1,72 @@
-from geopy.geocoders import Nominatim
+import os
+import json
 from shapely.geometry import Polygon
 from pyproj import Transformer
+from geopy.geocoders import Nominatim
 
-def converti_coordinate(coordinate, input_epsg, output_epsg):
-    transformer = Transformer.from_crs(f'epsg:{input_epsg}', f'epsg:{output_epsg}')
-    lon, lat = transformer.transform(coordinate[0], coordinate[1])
-    return lon, lat
+import json
+from shapely.geometry import Polygon
+from shapely.ops import transform
+import pyproj
 
-def calcola_area(coordinates, input_epsg=4326, output_epsg=32633):
-    converted_coordinates = [converti_coordinate(coord, input_epsg, output_epsg) for coord in coordinates]
-    polygon = Polygon(converted_coordinates)
-    print(F"AREA : {polygon.area}")
-    return polygon.area if polygon.is_valid else 0.0
+def converti_in_metri_quadrati(geometry):
+    # Converte le coordinate geografiche in metri quadrati
+    project = pyproj.Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True).transform
+    geometry_in_metri = transform(project, geometry)
+    return geometry_in_metri
 
-def calcola_perimetro(coordinates, input_epsg=4326, output_epsg=32633):
-    converted_coordinates = [converti_coordinate(coord, input_epsg, output_epsg) for coord in coordinates]
-    polygon = Polygon(converted_coordinates)
-    print(F"PERIMETRO : {polygon.length}")
-    return polygon.length if polygon.is_valid else 0.0
-
-def trova_nome_citta(latitudine, longitudine):
+def trova_provincia(latitudine, longitudine):
     geolocator = Nominatim(user_agent="trova_nome_citta")
     location = geolocator.reverse((latitudine, longitudine), language="it")
-    address = location.raw.get("address", {})
-    city = address.get("city") or address.get("town") or address.get("village")
 
-    return city or "Non Trovato"
+    if location is not None:
+        address = location.raw.get("address", {})
+        provincia = address.get("state_district") or address.get("state") or address.get("county")
+        return provincia or "Non Trovato"
+    else:
+        return "Non Trovato"
+
+
+def calcola_campi_vuoti_centroide_area_perimetro(json_path):
+    with open(json_path, 'r') as file:
+        data = json.load(file)
+
+    for utente in data['utenti']:
+        for lotto in utente['lotti']:
+            # Calcola l'area e il perimetro utilizzando la libreria Shapely
+            coordinates = lotto['geometry']['coordinates'][0]
+            polygon = Polygon(coordinates)
+
+            # Converte le coordinate del poligono in metri quadrati
+            polygon_in_metri = converti_in_metri_quadrati(polygon)
+
+            # Calcola l'area e il perimetro
+            area_metri_quadrati = round(polygon_in_metri.area, 2)
+            perimetro_metri = round(polygon_in_metri.length, 2)
+
+            # Calcola il centroide
+            centroide = polygon.centroid
+            latitudine, longitudine = centroide.xy
+
+            # Aggiorna i valori nel dizionario del lotto
+            lotto['area'] = area_metri_quadrati
+            lotto['perimetro'] = perimetro_metri
+            lotto['centroide']['latitudine'] = latitudine[0]
+            lotto['centroide']['longitudine'] = longitudine[0]
+
+            provincia = trova_provincia(lotto['centroide']['longitudine'], lotto['centroide']['latitudine'])
+            
+
+            # Stampa risultati
+            print(f"Lotto {lotto['nome']}:")
+            print(f"  Campi vuoti: {campi_vuoti}")
+            print(f"  Area: {area_metri_quadrati} m²")
+            print(f"  Perimetro: {perimetro_metri} metri")
+            print(f"  Centroide: {centroide}\n")
+            print(f"  Provincia: {provincia}\n")
+
+    return data
+
+# Esempio di utilizzo
+json_path = r'.\json_inserimento\lotto_catasto9.json'
+risultato = calcola_campi_vuoti_centroide_area_perimetro(json_path)

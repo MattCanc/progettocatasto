@@ -1,0 +1,127 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Luigi",
+        "cognome": "Greco",
+        "cf": "grclui17g14l890j",
+        "data_nascita": "1979-04-18",
+        "luogo_nascita": "Firenze",
+        "indirizzo_residenza": "Piazza della Signoria, 21, Firenze"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di proprietà 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  16.269566368040927,
+                  40.63204889039301
+                ],
+                [
+                  16.269566368040927,
+                  40.39516645009982
+                ],
+                [
+                  16.565307849568796,
+                  40.39516645009982
+                ],
+                [
+                  16.565307849568796,
+                  40.63204889039301
+                ],
+                [
+                  16.269566368040927,
+                  40.63204889039301
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 0.0,
+            "longitudine": 0.0
+          },
+          "provincia_lotto": ""
+        },
+        {
+          "nome": "lotto di proprietà 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  16.71748511945313,
+                  39.26186116797837
+                ],
+                [
+                  16.71748511945313,
+                  39.15995586830232
+                ],
+                [
+                  16.8884618907706,
+                  39.15995586830232
+                ],
+                [
+                  16.8884618907706,
+                  39.26186116797837
+                ],
+                [
+                  16.71748511945313,
+                  39.26186116797837
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 0.0,
+            "longitudine": 0.0
+          },
+          "provincia_lotto": ""
+        },
+        {
+          "nome": "lotto di proprietà 2",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  16.305382448003456,
+                  38.76286067405891
+                ],
+                [
+                  16.305382448003456,
+                  38.61400482852295
+                ],
+                [
+                  16.489511278653282,
+                  38.61400482852295
+                ],
+                [
+                  16.489511278653282,
+                  38.76286067405891
+                ],
+                [
+                  16.305382448003456,
+                  38.76286067405891
+                ]
+              ]
+            ]
+          },
+          "area": 0.0,
+          "perimetro": 0.0,
+          "centroide": {
+            "latitudine": 0.0,
+            "longitudine": 0.0
+          },
+          "provincia_lotto": ""
+        }
+      ]
+    }
+  ]
+}
