@@ -10,10 +10,11 @@ from shapely.geometry import LineString, mapping
 class CatastoManager:
     def __init__(self, username, password, cluster_url, database_name):
         self.client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster_url}/')
+        self.database_name = database_name
         self.database = self.client[database_name]
 
     def open_close(self):
-        print(f"Connessione al database :{database_name}")
+        print(f"Connessione al database :{self.database_name}")
         collections = self.database.list_collection_names()
         print(f"Collezioni disponibili nel database: {collections}")
 
@@ -208,7 +209,7 @@ class CatastoManager:
                 }
             ) 
             # Stampa il piano di esecuzione della query
-            print(collection.find(query).explain())
+            #print(collection.find(query).explain())
 
 
             for documento in result:
@@ -261,7 +262,7 @@ class CatastoManager:
                 )
 
                 # Print the execution plan of the query
-                print(informazioni_catastali.find(query).explain())
+                #print(informazioni_catastali.find(query).explain())
 
                 for documento in result:
                     print(documento)
@@ -293,6 +294,7 @@ if __name__ == '__main__':
         #manager.insert_data_from_folder("informazioni_catastali", folder_path, location_field)
         manager.get_index_information("informazioni_catastali")
         manager.get_index_information("strade_in_costruzione")
+        print("Cosa desideri fare?")
     finally:
         ...
         # Chiudo la connessione alla fine delle operazioni
