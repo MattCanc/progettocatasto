@@ -1,0 +1,21 @@
+{
+    "type": "Feature",
+    "properties": {
+      "name": "Strada del Sole",
+      "start_date": "2023-01-15"
+    },
+    "geometry": {
+      "coordinates": [
+        [
+          13.633667210734814,
+          41.956403128792005
+        ],
+        [
+          13.65566603082246,
+          41.93955450701847
+        ]
+      ],
+      "type": "LineString"
+    }
+  }
+  

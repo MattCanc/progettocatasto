@@ -1,0 +1,50 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Stato Italiano",
+        "cognome": "-",
+        "cf": "-",
+        "data_nascita": "-",
+        "luogo_nascita": "-",
+        "indirizzo_residenza": "-",
+        "professione": "-"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00c3\u00a0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  13.62826027091478, 46.17483959284243
+                ],
+                [
+                  13.57047900861761, 46.17483959284243
+                ],
+                [
+                  13.62826027091478, 46.13552041051415
+                ],
+                [
+                  13.62826027091478, 46.13552041051415
+                ],
+                [
+                  13.62826027091478, 46.17483959284243
+                ]
+              ]
+            ]
+          },
+          "area": 11168.67,
+          "perimetro": 429.06,
+          "centroide": {
+            "latitudine": 13.434100773447085,
+            "longitudine": 42.62392849460069
+          },
+          "provincia_lotto": "Lombardia"
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,55 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Ezio",
+        "cognome": "Greggio",
+        "cf": "grgezi88m42h501z",
+        "data_nascita": "1954-04-07",
+        "luogo_nascita": "Cinecitt\u00c3\u00a0",
+        "indirizzo_residenza": "Viale dei Sogni, 5, Roma",
+        "professione": "Conduttore televisivo"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00c3\u00a0 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  10.216791348514334,
+                  44.94534426697291
+                ],
+                [
+                  10.22342860724973,
+                  44.94534426697291
+                ],
+                [
+                  10.22342860724973,
+                  44.9654275790183
+                ],
+                [
+                  10.216791348514334,
+                  44.9654275790183
+                ],
+                [
+                  10.216791348514334,
+                  44.94534426697291
+                ]
+              ]
+            ]
+          },
+          "area": 2334229.78,
+          "perimetro": 7796.21,
+          "centroide": {
+            "latitudine": 10.220109977882032,
+            "longitudine": 44.9553859229956
+          },
+          "provincia_lotto": "Emilia-Romagna"
+        }
+      ]
+    }
+  ]
+}
+

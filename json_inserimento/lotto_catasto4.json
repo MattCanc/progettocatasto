@@ -1,0 +1,127 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Stefania",
+        "cognome": "Morelli",
+        "cf": "mrlstf16p12e345r",
+        "data_nascita": "1990-09-15",
+        "luogo_nascita": "Milano",
+        "indirizzo_residenza": "Via della Moscova, 56, Milano"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00c3\u00a0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  17.86973902809433,
+                  40.4594884887064
+                ],
+                [
+                  17.86973902809433,
+                  40.3267569792161
+                ],
+                [
+                  18.070420747703025,
+                  40.3267569792161
+                ],
+                [
+                  18.070420747703025,
+                  40.4594884887064
+                ],
+                [
+                  17.86973902809433,
+                  40.4594884887064
+                ]
+              ]
+            ]
+          },
+          "area": 433399487.04,
+          "perimetro": 83480.26,
+          "centroide": {
+            "latitudine": 17.970079887898677,
+            "longitudine": 40.39312273396125
+          },
+          "provincia_lotto": "Puglia"
+        },
+        {
+          "nome": "lotto di propriet\u00c3\u00a0 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  15.942138299205766,
+                  40.29051203804366
+                ],
+                [
+                  15.942138299205766,
+                  40.17359063805699
+                ],
+                [
+                  16.121695627276353,
+                  40.17359063805699
+                ],
+                [
+                  16.121695627276353,
+                  40.29051203804366
+                ],
+                [
+                  15.942138299205766,
+                  40.29051203804366
+                ]
+              ]
+            ]
+          },
+          "area": 340775035.26,
+          "perimetro": 74074.03,
+          "centroide": {
+            "latitudine": 16.031916963241063,
+            "longitudine": 40.232051338050326
+          },
+          "provincia_lotto": "Basilicata"
+        },
+        {
+          "nome": "lotto di propriet\u00c3\u00a0 2",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  18.5,
+                  41.0
+                ],
+                [
+                  18.5,
+                  40.8
+                ],
+                [
+                  18.8,
+                  40.8
+                ],
+                [
+                  18.8,
+                  41.0
+                ],
+                [
+                  18.5,
+                  41.0
+                ]
+              ]
+            ]
+          },
+          "area": 983686278.0,
+          "perimetro": 125702.39,
+          "centroide": {
+            "latitudine": 18.65,
+            "longitudine": 40.9
+          },
+          "provincia_lotto": "Non Trovato"
+        }
+      ]
+    }
+  ]
+}

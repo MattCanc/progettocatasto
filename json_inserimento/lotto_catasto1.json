@@ -1,0 +1,90 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Luigi",
+        "cognome": "Greco",
+        "cf": "grclui17g14l890j",
+        "data_nascita": "1979-04-18",
+        "luogo_nascita": "Firenze",
+        "indirizzo_residenza": "Piazza della Signoria, 21, Firenze"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00c3\u00a0 0",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  10.695263396732258,
+                  45.29288312418245
+                ],
+                [
+                  10.695263396732258,
+                  45.077237002556444
+                ],
+                [
+                  11.353366105703543,
+                  45.077237002556444
+                ],
+                [
+                  11.353366105703543,
+                  45.29288312418245
+                ],
+                [
+                  10.695263396732258,
+                  45.29288312418245
+                ]
+              ]
+            ]
+          },
+          "area": 2495173776.29,
+          "perimetro": 214637.95,
+          "centroide": {
+            "latitudine": 11.024314751217899,
+            "longitudine": 45.18506006336945
+          },
+          "provincia_lotto": "Veneto"
+        },
+        {
+          "nome": "lotto di propriet\u00c3\u00a0 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  9.8094343526775,
+                  44.72618208780807
+                ],
+                [
+                  9.8094343526775,
+                  44.51662897856963
+                ],
+                [
+                  10.39249026150361,
+                  44.51662897856963
+                ],
+                [
+                  10.39249026150361,
+                  44.72618208780807
+                ],
+                [
+                  9.8094343526775,
+                  44.72618208780807
+                ]
+              ]
+            ]
+          },
+          "area": 2127216173.74,
+          "perimetro": 195359.09,
+          "centroide": {
+            "latitudine": 10.100962307090555,
+            "longitudine": 44.62140553318885
+          },
+          "provincia_lotto": "Emilia-Romagna"
+        }
+      ]
+    }
+  ]
+}
