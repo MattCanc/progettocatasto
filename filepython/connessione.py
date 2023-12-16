@@ -98,6 +98,19 @@ class CatastoManager:
         except Exception as e:
             print(f"Errore durante la ricerca: {str(e)}")
 
+    def stampa(self, utente):
+        for elemento in utente:
+            proprietario = elemento["utenti"][0]["proprietario"]
+            nomi_lotti = elemento["lotti"]["nome"]
+            province = elemento["lotti"]["provincia"]
+            lotti = list(zip(nomi_lotti, province))
+            print(f"Proprietario: {proprietario['nome']} {proprietario['cognome']}")
+            numero_lotto = 1
+            for i, (nome_lotto, provincia) in enumerate(lotti, 1):
+                for j, (nome, prov) in enumerate(zip(nome_lotto, provincia), 1):
+                    print(f"Lotto {numero_lotto} - Nome Lotto: {nome}, Provincia: {prov}")
+                    numero_lotto += 1
+            print()
     def find_owner_by_cv(self, collection_name, cf: str):
         cf = cf.lower()
         print(f"Sto cercando codice fiscale: {cf} in collezione {collection_name}")
@@ -126,9 +139,7 @@ class CatastoManager:
                     "_id": 0
                 }}
             ])
-
-            for documento in result:
-                print(documento)
+            return result
         except Exception as e:
             print(f"Errore durante la ricerca: {str(e)}")
 
@@ -181,9 +192,6 @@ class CatastoManager:
                     }
                 }
                 }
-
-
-
         collection = self.database[collection_name]
         print(f"Sto cercando il punto: {punto_di_riferimento[0]},{punto_di_riferimento[1]} in collezione {collection_name}")
 
@@ -211,11 +219,25 @@ class CatastoManager:
             # Stampa il piano di esecuzione della query
             #print(collection.find(query).explain())
 
-
-            for documento in result:
-                print(documento)
+            return list(result)
+            # for documento in result:
+            #     print(documento)
         except Exception as e:
             print(f"Errore durante la ricerca: {str(e)}")
+
+    def stampa_dati(self, utenti):
+        for utente in utenti:
+            proprietario = utente['utenti'][0]['proprietario']
+            print(f"Proprietario: {proprietario['nome']} {proprietario['cognome']}")
+
+            lotti = utente['utenti'][0].get('lotti', [])  # Se 'lotti' non è presente, restituisci una lista vuota
+
+            for i, lotto in enumerate(lotti, 1):
+                nome_lotto = lotto.get('nome', 'N/A')  # Se 'nome' non è presente, usa 'N/A'
+                provincia_lotto = lotto.get('provincia', ['N/A'])[0]  # Se 'provincia' non è presente, usa ['N/A']
+                print(f"Lotto {i} - Nome Lotto: {nome_lotto}, Provincia: {provincia_lotto}")
+
+            print()
 
     def find_new_streets(self):
         informazioni_catastali = self.database['informazioni_catastali']
