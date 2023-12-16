@@ -228,25 +228,24 @@ class CatastoManager:
             street_name = street_feature['properties']['name']
             street_coordinates = street_feature['geometry']['coordinates']
 
-            # Crea la LineString e aggiungila alla lista
-            street_geometry = LineString(street_coordinates)
             print(f"Analizzando strada: {street_name}")
             print(f"Coordinate disponibili:\n{street_coordinates}")
 
+            print(street_coordinates)
+            # Stampa la lista delle coordinate
+            
+
+            # Crea la query usando tutte le coordinate
             query = {
                 "utenti.lotti.geometry": {
                     "$geoIntersects": {
                         "$geometry": {
                             "type": "LineString",
-                            "coordinates": [
-                                [13.417530680516165, 46.132712096467856],
-                                [13.689399686236868, 46.15415842000283]
-                            ]  
+                            "coordinates": street_coordinates
                         }
                     }
                 }
             }
-
             try:
                 result = informazioni_catastali.find(
                     query,
@@ -267,6 +266,7 @@ class CatastoManager:
                 for documento in result:
                     print(documento)
                     # Process or store the document as needed
+                    
 
             except Exception as e:
                 print(f"Errore durante la ricerca: {str(e)}")
