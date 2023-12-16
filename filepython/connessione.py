@@ -5,6 +5,7 @@ import os
 from pymongo import MongoClient, GEOSPHERE
 import json
 from shapely.geometry import Polygon, LineString
+from shapely.geometry import LineString, mapping
 
 class CatastoManager:
     def __init__(self, username, password, cluster_url, database_name):
@@ -216,69 +217,59 @@ class CatastoManager:
             print(f"Errore durante la ricerca: {str(e)}")
 
     def find_new_streets(self):
-            informazioni_catastali = self.database['informazioni_catastali']
-            strade_in_costruzione = self.database['strade_in_costruzione']
-            
-            informazioni_catastali.create_index([("utenti.lotti.geometry", "2dsphere")])
-            
-            new_streets = []
+        informazioni_catastali = self.database['informazioni_catastali']
+        strade_in_costruzione = self.database['strade_in_costruzione']
+        informazioni_catastali.create_index([("utenti.lotti.geometry", "2dsphere")])
 
-            all_street_geometries = []
+        new_streets = []
 
-            # Itera su tutte le strade nella collezione
-            for street_feature in strade_in_costruzione.find():
-                street_name = street_feature['properties']['name']
-                street_coordinates = street_feature['geometry']['coordinates']
+        # Itera su tutte le strade nella collezione
+        for street_feature in strade_in_costruzione.find():
+            street_name = street_feature['properties']['name']
+            street_coordinates = street_feature['geometry']['coordinates']
 
-                # Crea la LineString e aggiungila alla lista
-                street_geometry = LineString(street_coordinates)
-                print(f"Analizzando strada: {street_name}")
-                print(f"Coordinate disponibili:\n{street_coordinates}")
+            # Crea la LineString e aggiungila alla lista
+            street_geometry = LineString(street_coordinates)
+            print(f"Analizzando strada: {street_name}")
+            print(f"Coordinate disponibili:\n{street_coordinates}")
 
-                coordinata = []
-
-                for coo in street_coordinates:
-                    for temp in coo:
-                        coordinata.append(temp)
-                print(coordinata)
-
-                query = {
-                    "utenti.lotti.geometry": {
-                        "$geoIntersects": {
-                            "$geometry": {
-                                "type": "LineString",
-                                "coordinates": [
-                                    [coordinata[0], coordinata[1]],
-                                    [coordinata[2], coordinata[3]]
-                                ]  
-                            }
+            query = {
+                "utenti.lotti.geometry": {
+                    "$geoIntersects": {
+                        "$geometry": {
+                            "type": "LineString",
+                            "coordinates": [
+                                [13.417530680516165, 46.132712096467856],
+                                [13.689399686236868, 46.15415842000283]
+                            ]  
                         }
                     }
                 }
+            }
 
-                try:
-                # Remove the incorrect hint
-                    result = informazioni_catastali.find(
-                        query,
-                        {
-                            "_id": 0,
-                            "utenti.proprietario.nome": 1,
-                            "utenti.proprietario.cognome": 1,
-                            "utenti.proprietario.cf": 1,
-                            # Add other fields you want to retrieve
-                        }
-                    ) 
+            try:
+                result = informazioni_catastali.find(
+                    query,
+                    {
+                        "_id": 0,
+                        "utenti.proprietario.nome": 1,
+                        "utenti.proprietario.cognome": 1,
+                        "utenti.proprietario.cf": 1,
+                        "utenti.proprietario.data_nascita": 1,
+                        "utenti.proprietario.luogo_nascita": 1,
+                        "utenti.proprietario.indirizzo_residenza": 1
+                    }
+                )
 
-                    # Print the execution plan of the query
-                    print(informazioni_catastali.find(query).explain())
+                # Print the execution plan of the query
+                print(informazioni_catastali.find(query).explain())
 
-                    for documento in result:
-                        print(documento)
+                for documento in result:
+                    print(documento)
+                    # Process or store the document as needed
 
-                except Exception as e:
-                    print(f"Errore durante la ricerca: {str(e)}")
-
-            
+            except Exception as e:
+                print(f"Errore durante la ricerca: {str(e)}")
 
 
 
@@ -300,8 +291,8 @@ if __name__ == '__main__':
         manager.create_geospatial_index("informazioni_catastali", location_field)
         manager.create_2d_index("strade_in_costruzione", location_field)
         #manager.insert_data_from_folder("informazioni_catastali", folder_path, location_field)
-        #manager.get_index_information("informazioni_catastali")
-        #manager.get_index_information("strade_in_costruzione")
+        manager.get_index_information("informazioni_catastali")
+        manager.get_index_information("strade_in_costruzione")
     finally:
         ...
         # Chiudo la connessione alla fine delle operazioni
@@ -314,5 +305,5 @@ if __name__ == '__main__':
     #manager.find_owner_by_coordinates(collection_name="informazioni_catastali", punto_di_riferimento= [17.970079887898677,40.39312273396125])
         
     # ci sono strade che stanno passandoci dentro?
-    print(manager.find_new_streets())
+    manager.find_new_streets()
     
