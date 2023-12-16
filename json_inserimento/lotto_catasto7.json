@@ -12,7 +12,7 @@
       },
       "lotti": [
         {
-          "nome": "lotto di proprietà 0",
+          "nome": "lotto di propriet\u00c3\u00a0 0",
           "geometry": {
             "type": "Polygon",
             "coordinates": [
@@ -40,13 +40,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 11168.67,
+          "perimetro": 429.06,
           "centroide": {
-            "latitudine": 42.62392849460069,
-            "longitudine": 13.434100773447085
+            "latitudine": 13.434100773447085,
+            "longitudine": 42.62392849460069
           },
-          "provincia_lotto": ""
+          "provincia_lotto": "Abruzzo"
         }
       ]
     }

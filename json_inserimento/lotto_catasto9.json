@@ -40,10 +40,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 658508.44,
+          "perimetro": 3312.1,
+          "centroide": {
+            "latitudine": 16.792020500000003,
+            "longitudine": 41.894566
+          },
+          "provincia_lotto": "Non Trovato"
         },
         {
           "nome": "lotto di propriet\u00c3\u00a0 1",
@@ -74,10 +77,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 565386.61,
+          "perimetro": 3043.65,
+          "centroide": {
+            "latitudine": 16.8142835,
+            "longitudine": 41.88379650000001
+          },
+          "provincia_lotto": "Non Trovato"
         },
         {
           "nome": "lotto di propriet\u00c3\u00a0 2",
@@ -108,10 +114,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 992143.07,
+          "perimetro": 3984.77,
+          "centroide": {
+            "latitudine": 16.7798145,
+            "longitudine": 41.9089825
+          },
+          "provincia_lotto": "Non Trovato"
         }
       ]
     }

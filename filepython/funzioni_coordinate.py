@@ -1,10 +1,6 @@
 import os
 import json
-from shapely.geometry import Polygon
-from pyproj import Transformer
 from geopy.geocoders import Nominatim
-
-import json
 from shapely.geometry import Polygon
 from shapely.ops import transform
 import pyproj
@@ -25,7 +21,6 @@ def trova_provincia(latitudine, longitudine):
         return provincia or "Non Trovato"
     else:
         return "Non Trovato"
-
 
 def calcola_campi_vuoti_centroide_area_perimetro(json_path):
     with open(json_path, 'r') as file:
@@ -55,18 +50,28 @@ def calcola_campi_vuoti_centroide_area_perimetro(json_path):
             lotto['centroide']['longitudine'] = longitudine[0]
 
             provincia = trova_provincia(lotto['centroide']['longitudine'], lotto['centroide']['latitudine'])
-            
+            lotto['provincia_lotto'] = provincia
 
             # Stampa risultati
             print(f"Lotto {lotto['nome']}:")
-            print(f"  Campi vuoti: {campi_vuoti}")
             print(f"  Area: {area_metri_quadrati} m²")
             print(f"  Perimetro: {perimetro_metri} metri")
             print(f"  Centroide: {centroide}\n")
             print(f"  Provincia: {provincia}\n")
 
+    # Sovrascrivi il file JSON con i risultati
+    with open(json_path, 'w') as file:
+        json.dump(data, file, indent=2)
+
     return data
 
-# Esempio di utilizzo
-json_path = r'.\json_inserimento\lotto_catasto9.json'
-risultato = calcola_campi_vuoti_centroide_area_perimetro(json_path)
+cartella_json = r'.\json_inserimento'
+
+# Itera sui file nella cartella
+#for filename in os.listdir(cartella_json):
+    #if filename.endswith(".json"):
+        #json_path = os.path.join(cartella_json, filename)
+        #print(json_path)
+        #risultato = calcola_campi_vuoti_centroide_area_perimetro(json_path)
+
+risultato = calcola_campi_vuoti_centroide_area_perimetro(f"./json_strade/lotto_catasto_strada2.json")

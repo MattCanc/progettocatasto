@@ -1,0 +1,54 @@
+{
+  "utenti": [
+    {
+      "proprietario": {
+        "nome": "Rosa",
+        "cognome": "Salberelli",
+        "cf": "slbrsa88m42h501z",
+        "data_nascita": "1988-04-15",
+        "luogo_nascita": "Milano",
+        "indirizzo_residenza": "Via dei Fiori, 10, Milano",
+        "professione": "Architetto"
+      },
+      "lotti": [
+        {
+          "nome": "lotto di propriet\u00c3\u00a0 1",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  13.654008797675857,
+                  41.9422179758152
+                ],
+                [
+                  13.654008797675857,
+                  41.93790009957044
+                ],
+                [
+                  13.659184753975836,
+                  41.93790009957044
+                ],
+                [
+                  13.659184753975836,
+                  41.9422179758152
+                ],
+                [
+                  13.654008797675857,
+                  41.9422179758152
+                ]
+              ]
+            ]
+          },
+          "area": 372324.05,
+          "perimetro": 2444.75,
+          "centroide": {
+            "latitudine": 13.656596775825847,
+            "longitudine": 41.940059037692826
+          },
+          "provincia_lotto": "Abruzzo"
+        }
+      ]
+    }
+  ]
+}

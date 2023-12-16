@@ -39,13 +39,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 2495173776.29,
+          "perimetro": 214637.95,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 11.024314751217899,
+            "longitudine": 45.18506006336945
           },
-          "provincia_lotto": "Non Trovato"
+          "provincia_lotto": "Veneto"
         },
         {
           "nome": "lotto di propriet\u00c3\u00a0 1",
@@ -76,13 +76,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 2127216173.74,
+          "perimetro": 195359.09,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 10.100962307090555,
+            "longitudine": 44.62140553318885
           },
-          "provincia_lotto": "Non Trovato"
+          "provincia_lotto": "Emilia-Romagna"
         }
       ]
     }

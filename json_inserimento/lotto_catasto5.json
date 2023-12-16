@@ -11,7 +11,7 @@
       },
       "lotti": [
         {
-          "nome": "lotto di proprietà 0",
+          "nome": "lotto di propriet\u00c3\u00a0 0",
           "geometry": {
             "type": "Polygon",
             "coordinates": [
@@ -39,16 +39,16 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 1141907420.39,
+          "perimetro": 135214.5,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 16.41743710880486,
+            "longitudine": 40.513607670246415
           },
-          "provincia_lotto": ""
+          "provincia_lotto": "Basilicata"
         },
         {
-          "nome": "lotto di proprietà 1",
+          "nome": "lotto di propriet\u00c3\u00a0 1",
           "geometry": {
             "type": "Polygon",
             "coordinates": [
@@ -76,16 +76,16 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 278659140.53,
+          "perimetro": 67347.71,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 16.802973505111865,
+            "longitudine": 39.21090851814034
           },
-          "provincia_lotto": ""
+          "provincia_lotto": "Calabria"
         },
         {
-          "nome": "lotto di proprietà 2",
+          "nome": "lotto di propriet\u00c3\u00a0 2",
           "geometry": {
             "type": "Polygon",
             "coordinates": [
@@ -113,13 +113,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 435136965.6,
+          "perimetro": 83452.59,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 16.39744686332837,
+            "longitudine": 38.68843275129093
           },
-          "provincia_lotto": ""
+          "provincia_lotto": "Calabria"
         }
       ]
     }

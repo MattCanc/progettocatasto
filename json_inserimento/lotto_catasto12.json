@@ -40,10 +40,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 4112.33,
+          "perimetro": 260.5,
+          "centroide": {
+            "latitudine": 16.04654840414042,
+            "longitudine": 38.179361063990484
+          },
+          "provincia_lotto": "Calabria"
         },
         {
           "nome": "lotto di propriet\u00c3\u00a0 1",
@@ -74,10 +77,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 14700.15,
+          "perimetro": 516.22,
+          "centroide": {
+            "latitudine": 16.049097816649223,
+            "longitudine": 38.177825317091035
+          },
+          "provincia_lotto": "Calabria"
         }
       ]
     }

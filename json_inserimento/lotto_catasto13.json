@@ -39,13 +39,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 4142.78,
+          "perimetro": 260.13,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 16.022548141090283,
+            "longitudine": 38.170722579807645
           },
-          "provincia_lotto": "Non Trovato"
+          "provincia_lotto": "Calabria"
         },
         {
           "nome": "Lotto B",
@@ -76,13 +76,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 14098.14,
+          "perimetro": 520.25,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 16.02494450166573,
+            "longitudine": 38.16997274347935
           },
-          "provincia_lotto": "Non Trovato"
+          "provincia_lotto": "Calabria"
         },
         {
           "nome": "Lotto C",
@@ -113,13 +113,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 7235.78,
+          "perimetro": 347.72,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 16.02027696352937,
+            "longitudine": 38.1684168090879
           },
-          "provincia_lotto": "Non Trovato"
+          "provincia_lotto": "Calabria"
         }
       ]
     }

@@ -40,10 +40,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 82141.15,
+          "perimetro": 1156.11,
+          "centroide": {
+            "latitudine": 13.489939651503079,
+            "longitudine": 42.57653139657445
+          },
+          "provincia_lotto": "Abruzzo"
         },
         {
           "nome": "lotto di propriet\u00c3\u00a0 1",
@@ -74,10 +77,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 106109.3,
+          "perimetro": 1313.4,
+          "centroide": {
+            "latitudine": 13.498712335660114,
+            "longitudine": 42.575369069893
+          },
+          "provincia_lotto": "Abruzzo"
         },
         {
           "nome": "lotto di propriet\u00c3\u00a0 2",
@@ -108,10 +114,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 167065.7,
+          "perimetro": 1730.23,
+          "centroide": {
+            "latitudine": 13.495497775592751,
+            "longitudine": 42.5679679931504
+          },
+          "provincia_lotto": "Abruzzo"
         }
       ]
     }

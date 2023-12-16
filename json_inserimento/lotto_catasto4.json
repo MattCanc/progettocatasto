@@ -11,7 +11,7 @@
       },
       "lotti": [
         {
-          "nome": "lotto di proprietà 0",
+          "nome": "lotto di propriet\u00c3\u00a0 0",
           "geometry": {
             "type": "Polygon",
             "coordinates": [
@@ -39,16 +39,16 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 433399487.04,
+          "perimetro": 83480.26,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 17.970079887898677,
+            "longitudine": 40.39312273396125
           },
-          "provincia_lotto": ""
+          "provincia_lotto": "Puglia"
         },
         {
-          "nome": "lotto di proprietà 1",
+          "nome": "lotto di propriet\u00c3\u00a0 1",
           "geometry": {
             "type": "Polygon",
             "coordinates": [
@@ -76,16 +76,16 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 340775035.26,
+          "perimetro": 74074.03,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 16.031916963241063,
+            "longitudine": 40.232051338050326
           },
-          "provincia_lotto": ""
+          "provincia_lotto": "Basilicata"
         },
         {
-          "nome": "lotto di proprietà 2",
+          "nome": "lotto di propriet\u00c3\u00a0 2",
           "geometry": {
             "type": "Polygon",
             "coordinates": [
@@ -113,13 +113,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
+          "area": 983686278.0,
+          "perimetro": 125702.39,
           "centroide": {
-            "latitudine": 0.0,
-            "longitudine": 0.0
+            "latitudine": 18.65,
+            "longitudine": 40.9
           },
-          "provincia_lotto": ""
+          "provincia_lotto": "Non Trovato"
         }
       ]
     }

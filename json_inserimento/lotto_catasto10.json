@@ -40,10 +40,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 16533.86,
+          "perimetro": 526.57,
+          "centroide": {
+            "latitudine": 16.76159139072848,
+            "longitudine": 39.0974929581526
+          },
+          "provincia_lotto": "Calabria"
         },
         {
           "nome": "lotto di propriet\u00c3\u00a0 1",
@@ -74,10 +77,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 45210.22,
+          "perimetro": 858.81,
+          "centroide": {
+            "latitudine": 16.76257685717124,
+            "longitudine": 39.09448833856777
+          },
+          "provincia_lotto": "Calabria"
         },
         {
           "nome": "lotto di propriet\u00c3\u00a0 2",
@@ -108,10 +114,13 @@
               ]
             ]
           },
-          "area": 0.0,
-          "perimetro": 0.0,
-          "centroide": {},
-          "provincia_lotto": ""
+          "area": 45387.05,
+          "perimetro": 871.34,
+          "centroide": {
+            "latitudine": 16.757607290677612,
+            "longitudine": 39.09567927674176
+          },
+          "provincia_lotto": "Calabria"
         }
       ]
     }
