@@ -103,14 +103,21 @@ class CatastoManager:
             proprietario = elemento["utenti"][0]["proprietario"]
             nomi_lotti = elemento["lotti"]["nome"]
             province = elemento["lotti"]["provincia"]
-            lotti = list(zip(nomi_lotti, province))
+            aree = elemento["lotti"]["area"]
+            perimetri = elemento["lotti"]["perimetro"]
+
+            lotti = list(zip(nomi_lotti, province, aree, perimetri))
+
             print(f"Proprietario: {proprietario['nome']} {proprietario['cognome']}")
+
             numero_lotto = 1
-            for i, (nome_lotto, provincia) in enumerate(lotti, 1):
-                for j, (nome, prov) in enumerate(zip(nome_lotto, provincia), 1):
-                    print(f"Lotto {numero_lotto} - Nome Lotto: {nome}, Provincia: {prov}")
+            for i, (nome_lotto, provincia, area, perimetro) in enumerate(lotti, 1):
+                for j, (nome, prov,a,p) in enumerate(zip(nome_lotto, provincia,area, perimetro), 1):
+                    print(
+                        f"Lotto {numero_lotto} - Nome Lotto: {nome}, Provincia: {prov}, Area: {a}, Perimetro: {p}")
                     numero_lotto += 1
             print()
+
     def find_owner_by_cv(self, collection_name, cf: str):
         cf = cf.lower()
         print(f"Sto cercando codice fiscale: {cf} in collezione {collection_name}")
@@ -235,8 +242,11 @@ class CatastoManager:
             for i, lotto in enumerate(lotti, 1):
                 nome_lotto = lotto.get('nome', 'N/A')  # Se 'nome' non è presente, usa 'N/A'
                 provincia_lotto = lotto.get('provincia', ['N/A'])[0]  # Se 'provincia' non è presente, usa ['N/A']
-                print(f"Lotto {i} - Nome Lotto: {nome_lotto}, Provincia: {provincia_lotto}")
-
+                area_lotto = lotto.get('area', 'N/A')
+                perimetro_lotto = lotto.get('perimetro', 'N/A')
+                latitudine_lotto = lotto.get('centroide_latitudine', 'N/A')
+                longitudine_lotto = lotto.get('centroide_longitudine', 'N/A')
+                print(f"Lotto {i} - Nome Lotto: {nome_lotto}, Provincia: {provincia_lotto}, Area: {area_lotto}, Perimetro: {perimetro_lotto}, Centroide: {latitudine_lotto},{longitudine_lotto}")
             print()
 
     def find_new_streets(self):
