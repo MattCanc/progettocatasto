@@ -119,15 +119,23 @@ class CatastoManager:
             numero_lotto = 1
             for i, (nome_lotto, provincia, area, perimetro) in enumerate(lotti, 1):
                 for j, (nome, prov,a,p) in enumerate(zip(nome_lotto, provincia,area, perimetro), 1):
-                    print(f"Lotto {numero_lotto} - Nome Lotto: {nome}, Provincia: {prov}, Area: {a}, Perimetro: {p}")
+                    print(f"Lotto {numero_lotto} - Nome Lotto: {nome}, Provincia: {prov}")
                     numero_lotto += 1
                     dizionario["Nome Lotto"].append(nome)
                     dizionario["Provincia"].append(prov)
                     dizionario["Area"].append(a)
                     dizionario["Perimetro"].append(p)
             print(dizionario)
-            print()
-
+            menu = int(input('seleziona:\n1 per vedere informazioni aggiuntive per un lotto \n2 per uscire\n'))
+            if menu == 1:
+                choice = int(input('indica il numero del lotto di cui desideri ottenere informazioni aggiuntive: '))
+                choice -=1
+                print(f"ecco le informazioni aggiuntive per il lotto scelto: \nArea: {dizionario['Area'][choice]}\nPerimetro: {dizionario['Perimetro'][choice]}")
+            elif menu == 2:
+                pass
+            else:
+                pass
+            
     def find_owner_by_cv(self, collection_name, cf: str):
         cf = cf.lower()
         print(f"Sto cercando codice fiscale: {cf} in collezione {collection_name}")

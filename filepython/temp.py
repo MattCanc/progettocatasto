@@ -37,6 +37,7 @@ try:
         cf = input("Inserisci il codice fiscale (CV): ")
         lotti = manager.find_owner_by_cv(collection_name="informazioni_catastali", cf=cf)
         manager.stampa(lotti)
+
     elif scelta == "2":
         latitudine = float(input("Inserisci la latitudine: "))
         longitudine = float(input("Inserisci la longitudine: "))
