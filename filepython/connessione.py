@@ -99,6 +99,12 @@ class CatastoManager:
             print(f"Errore durante la ricerca: {str(e)}")
 
     def stampa(self, utente):
+        dizionario = {
+            "Nome Lotto": [],
+            "Provincia": [],
+            "Area": [],
+            "Perimetro": []
+        }
         for elemento in utente:
             proprietario = elemento["utenti"][0]["proprietario"]
             nomi_lotti = elemento["lotti"]["nome"]
@@ -113,9 +119,13 @@ class CatastoManager:
             numero_lotto = 1
             for i, (nome_lotto, provincia, area, perimetro) in enumerate(lotti, 1):
                 for j, (nome, prov,a,p) in enumerate(zip(nome_lotto, provincia,area, perimetro), 1):
-                    print(
-                        f"Lotto {numero_lotto} - Nome Lotto: {nome}, Provincia: {prov}, Area: {a}, Perimetro: {p}")
+                    print(f"Lotto {numero_lotto} - Nome Lotto: {nome}, Provincia: {prov}, Area: {a}, Perimetro: {p}")
                     numero_lotto += 1
+                    dizionario["Nome Lotto"].append(nome)
+                    dizionario["Provincia"].append(prov)
+                    dizionario["Area"].append(a)
+                    dizionario["Perimetro"].append(p)
+            print(dizionario)
             print()
 
     def find_owner_by_cv(self, collection_name, cf: str):
@@ -233,20 +243,28 @@ class CatastoManager:
             print(f"Errore durante la ricerca: {str(e)}")
 
     def stampa_dati(self, utenti):
+        dizionario = {
+            "Nome Lotto": [],
+            "Provincia": [],
+            "Area": [],
+            "Perimetro": []
+        }
         for utente in utenti:
+            print(utente)
             proprietario = utente['utenti'][0]['proprietario']
             print(f"Proprietario: {proprietario['nome']} {proprietario['cognome']}")
-
-            lotti = utente['utenti'][0].get('lotti', [])  # Se 'lotti' non è presente, restituisci una lista vuota
-
+            lotti = utente['utenti'][0].get('lotti', [])
             for i, lotto in enumerate(lotti, 1):
                 nome_lotto = lotto.get('nome', 'N/A')  # Se 'nome' non è presente, usa 'N/A'
-                provincia_lotto = lotto.get('provincia', ['N/A'])[0]  # Se 'provincia' non è presente, usa ['N/A']
+                provincia_lotto = lotto.get('provincia_lotto', ['N/A'])  # Se 'provincia' non è presente, usa ['N/A']
                 area_lotto = lotto.get('area', 'N/A')
                 perimetro_lotto = lotto.get('perimetro', 'N/A')
-                latitudine_lotto = lotto.get('centroide_latitudine', 'N/A')
-                longitudine_lotto = lotto.get('centroide_longitudine', 'N/A')
-                print(f"Lotto {i} - Nome Lotto: {nome_lotto}, Provincia: {provincia_lotto}, Area: {area_lotto}, Perimetro: {perimetro_lotto}, Centroide: {latitudine_lotto},{longitudine_lotto}")
+                print(f"Lotto {i} - Nome Lotto: {nome_lotto}, Provincia: {provincia_lotto}, Area: {area_lotto}, Perimetro: {perimetro_lotto}")
+                dizionario["Nome Lotto"].append(nome_lotto)
+                dizionario["Provincia"].append(provincia_lotto)
+                dizionario["Area"].append(area_lotto)
+                dizionario["Perimetro"].append(perimetro_lotto)
+            print(dizionario)
             print()
 
     def find_new_streets(self):
@@ -299,7 +317,7 @@ class CatastoManager:
                 for documento in result:
                     print(documento)
                     # Process or store the document as needed
-                    
+
 
             except Exception as e:
                 print(f"Errore durante la ricerca: {str(e)}")

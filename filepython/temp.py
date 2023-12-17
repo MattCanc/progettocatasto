@@ -36,13 +36,11 @@ try:
     if scelta == "1":
         cf = input("Inserisci il codice fiscale (CV): ")
         lotti = manager.find_owner_by_cv(collection_name="informazioni_catastali", cf=cf)
-        print(type(lotti))
         manager.stampa(lotti)
     elif scelta == "2":
         latitudine = float(input("Inserisci la latitudine: "))
         longitudine = float(input("Inserisci la longitudine: "))
         lotti = manager.find_owner_by_coordinates(collection_name="informazioni_catastali",punto_di_riferimento=[longitudine, latitudine])
-        print(type(lotti))
         manager.stampa_dati(lotti)
     elif scelta == "3":
         manager.find_new_streets()
