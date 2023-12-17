@@ -218,7 +218,7 @@ class CatastoManager:
                 }
                 }
         collection = self.database[collection_name]
-        print(f"Sto cercando il punto: {punto_di_riferimento[0]},{punto_di_riferimento[1]} in collezione {collection_name}")
+        print(f"Sto cercando il punto: {punto_di_riferimento[0]}, {punto_di_riferimento[1]} in collezione {collection_name}")
 
         try:
             # Fornisci il nome effettivo dell'indice come hint
@@ -258,9 +258,9 @@ class CatastoManager:
             "Perimetro": []
         }
         for utente in utenti:
-            print(utente)
+            #print(utente)
             proprietario = utente['utenti'][0]['proprietario']
-            print(f"Proprietario: {proprietario['nome']} {proprietario['cognome']}")
+            print(f"Proprietario: {proprietario['nome']} {proprietario['cognome']}") #mostra il proprietario
             lotti = utente['utenti'][0].get('lotti', [])
             for i, lotto in enumerate(lotti, 1):
                 nome_lotto = lotto.get('nome', 'N/A')  # Se 'nome' non è presente, usa 'N/A'
@@ -272,8 +272,8 @@ class CatastoManager:
                 dizionario["Provincia"].append(provincia_lotto)
                 dizionario["Area"].append(area_lotto)
                 dizionario["Perimetro"].append(perimetro_lotto)
-            print(dizionario)
-            print()
+            #print(dizionario)
+            #print()
 
     def find_new_streets(self):
         informazioni_catastali = self.database['informazioni_catastali']
