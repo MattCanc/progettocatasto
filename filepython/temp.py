@@ -45,5 +45,7 @@ try:
         manager.stampa_dati(lotti)
     elif scelta == "3":
         manager.find_new_streets()
+    else:
+        print('non valido')
 finally:
     ...

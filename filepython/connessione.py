@@ -290,7 +290,7 @@ class CatastoManager:
             print(f"Analizzando strada: {street_name}")
             print(f"Coordinate disponibili:\n{street_coordinates}")
 
-            print(street_coordinates)
+            #print(street_coordinates)
             # Stampa la lista delle coordinate
             
 
@@ -323,7 +323,8 @@ class CatastoManager:
                 #print(informazioni_catastali.find(query).explain())
 
                 for documento in result:
-                    print(documento)
+                    # print(documento)
+                    print(f"proprietario strada trovata: {documento['utenti'][0]['proprietario']['nome']}")
                     # Process or store the document as needed
 
 
